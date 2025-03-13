@@ -1,58 +1,25 @@
-import { getBlogPostBySlug } from "../utils/getBlog";
+import { getBlogPostBySlug, getAllBlogSlugs } from "../utils/getBlog";
 import BlogLayout from "../components/BlogLayout";
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import RichText from "../components/RichText";
 
-interface Block {
-  _type: "block";
-  style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-  children: Array<{
-    _type: "span";
-    text: string;
-    marks?: string[];
-  }>;
-  markDefs?: Array<{
-    _type: "link";
-    href: string;
-  }>;
-}
-
-interface Image {
-  _type: "image";
-  asset: {
-    _ref: string;
-    url: string;
-  };
-  alt?: string;
-}
-
-type PortableText = Array<Block | Image>;
-
-interface Post {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-  author: {
-    name: string;
-  };
-  mainImage: string;
-  categories: Array<{
-    title: string;
-  }>;
-  publishedAt: string;
-  body: PortableText;
+export async function generateStaticParams() {
+  const slugs = await getAllBlogSlugs();
+  return slugs.map((slug: string) => ({ slug }));
 }
 
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post: Post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
+
+  if (!post) {
+    return <div>Post not found</div>;
+  }
 
   return (
     <BlogLayout>
