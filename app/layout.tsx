@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { fonts } from "./fonts";
 
 export const metadata: Metadata = {
   title: "NextJs Blog",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`} suppressHydrationWarning={true}>
+      <body
+        className={`${fonts.raleway} antialiased`}
+        suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>

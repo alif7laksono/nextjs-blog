@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Tag } from "lucide-react";
+import { fonts } from "@/app/fonts";
 
 interface Post {
   _id: string;
@@ -39,17 +40,16 @@ export default function BlogCard({ post }: BlogCardProps) {
         </div>
       )}
       <CardHeader>
-        <CardTitle className="text-xl font-semibold line-clamp-2">
+        <CardTitle
+          className={`${fonts.quattrocento_sans} text-xl font-semibold line-clamp-2`}
+        >
           {post.title}
         </CardTitle>
         <CardDescription className="flex flex-row justify-between items-center text-gray-600 gap-4">
-          {/* Tanggal Publikasi */}
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-gray-500" />
             <span>{new Date(post.publishedAt).toDateString()}</span>
           </div>
-
-          {/* Kategori */}
           {post.categories && post.categories.length > 0 && (
             <div className="flex items-center gap-2">
               <Tag className="w-4 h-4 text-gray-500" />
