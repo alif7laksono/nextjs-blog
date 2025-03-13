@@ -26,15 +26,17 @@ interface BlogCardProps {
 
 export default function BlogCard({ post }: BlogCardProps) {
   return (
-    <Card className="bg-white text-black shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="bg-white text-black shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-none">
       {post.mainImage && (
-        <Image
-          src={post.mainImage}
-          alt={post.title}
-          width={400}
-          height={200}
-          className="w-full h-48 object-cover rounded-lg px-4"
-        />
+        <div>
+          <Image
+            src={post.mainImage}
+            alt={post.title}
+            width={400}
+            height={200}
+            className="w-full h-48 object-cover px-4"
+          />
+        </div>
       )}
       <CardHeader>
         <CardTitle className="text-xl font-semibold line-clamp-2">
@@ -59,7 +61,7 @@ export default function BlogCard({ post }: BlogCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Button asChild variant="outline" className="w-full">
+        <Button asChild variant="outline" className="w-full rounded-none">
           <a href={`/blog/${post.slug}`}>Read More</a>
         </Button>
       </CardContent>

@@ -23,9 +23,9 @@ export default async function BlogPost({
 
   return (
     <BlogLayout>
-      <Card className="max-w-2xl mx-auto bg-white">
+      <Card className="max-w-2xl mx-auto border-none shadow-none">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold mb-4">
+          <CardTitle className="text-3xl text-center font-bold mb-4">
             {post.title}
           </CardTitle>
           {post.mainImage && (
@@ -34,12 +34,12 @@ export default async function BlogPost({
               alt={post.title}
               width={800}
               height={400}
-              className="rounded-lg mb-4"
+              className="rounded-none mb-4"
             />
           )}
-          <p className="text-gray-600 mb-4">
+          {/* <p className="text-gray-600 mb-4">
             {new Date(post.publishedAt).toDateString()}
-          </p>
+          </p> */}
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none">
           <RichText value={post.body} />
