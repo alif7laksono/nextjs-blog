@@ -23,10 +23,12 @@ export default async function BlogList() {
   const posts: Post[] = await getBlogPosts();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {posts.map((post: Post) => (
-        <BlogCard key={post._id} post={post} />
-      ))}
+    <div className="container mx-auto py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post: Post) => (
+          <BlogCard key={post._id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }

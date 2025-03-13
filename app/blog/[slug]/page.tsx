@@ -2,6 +2,8 @@ import { getBlogPostBySlug } from "../utils/getBlog";
 import BlogLayout from "../components/BlogLayout";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import RichText from "../components/RichText";
 
 interface Block {
   _type: "block";
@@ -54,24 +56,28 @@ export default async function BlogPost({
 
   return (
     <BlogLayout>
-      <article className="max-w-2xl mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        {post.mainImage && (
-          <Image
-            src={post.mainImage}
-            alt={post.title}
-            width={800}
-            height={400}
-            className="rounded-lg mb-4"
-          />
-        )}
-        <p className="text-gray-600 mb-4">
-          {new Date(post.publishedAt).toDateString()}
-        </p>
-        <div className="prose">
-          <PortableText value={post.body} />
-        </div>
-      </article>
+      <Card className="max-w-2xl mx-auto bg-white">
+        <CardHeader>
+          <CardTitle className="text-3xl font-bold mb-4">
+            {post.title}
+          </CardTitle>
+          {post.mainImage && (
+            <Image
+              src={post.mainImage}
+              alt={post.title}
+              width={800}
+              height={400}
+              className="rounded-lg mb-4"
+            />
+          )}
+          <p className="text-gray-600 mb-4">
+            {new Date(post.publishedAt).toDateString()}
+          </p>
+        </CardHeader>
+        <CardContent className="prose prose-lg max-w-none">
+          <RichText value={post.body} />
+        </CardContent>
+      </Card>
     </BlogLayout>
   );
 }
