@@ -40,7 +40,8 @@ export default async function BlogPost({
   const allPosts = await getBlogPosts();
   const morePosts = allPosts
     .filter((p: Post) => p.slug.current !== slug)
-    .slice(0, 3);
+    .sort(() => Math.random() - 0.4)
+    .slice(0, 4);
 
   if (!post) {
     return <div>Post not found</div>;
@@ -64,9 +65,6 @@ export default async function BlogPost({
               className="rounded-none mb-4"
             />
           )}
-          {/* <p className="text-gray-600 mb-4">
-            {new Date(post.publishedAt).toDateString()}
-          </p> */}
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none">
           <RichText value={post.body} />

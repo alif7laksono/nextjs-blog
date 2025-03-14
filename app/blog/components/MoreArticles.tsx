@@ -17,11 +17,11 @@ interface MoreArticlesProps {
 
 export default function MoreArticles({ posts }: MoreArticlesProps) {
   return (
-    <div className="mt-12">
+    <div className="max-w-2xl mx-auto mt-12">
       <h2 className={`${fonts.quattrocento_sans} text-2xl font-bold mb-6`}>
         More Articles
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {posts.map((post) => (
           <div
             key={post._id}
@@ -38,7 +38,7 @@ export default function MoreArticles({ posts }: MoreArticlesProps) {
             )}
             <div className="p-4">
               <h3
-                className={`${fonts.quattrocento_sans} text-xl font-semibold mb-2 line-clamp-2`}
+                className={`${fonts.quattrocento_sans} text-xl font-semibold mb-2 line-clamp-2 text-center`}
               >
                 {post.title}
               </h3>

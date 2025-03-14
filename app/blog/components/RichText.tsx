@@ -100,6 +100,19 @@ const components: PortableTextComponents = {
         {children}
       </blockquote>
     ),
+    ul: ({ children }: { children?: React.ReactNode }) => (
+      <ul className="list-disc list-inside space-y-2 mt-2 mb-4 text-gray-700">
+        {children}
+      </ul>
+    ),
+    ol: ({ children }: { children?: React.ReactNode }) => (
+      <ol className="list-decimal list-inside space-y-2 mt-2 mb-4 text-gray-700">
+        {children}
+      </ol>
+    ),
+    li: ({ children }: { children?: React.ReactNode }) => (
+      <li className="ml-4">{children}</li>
+    ),
   },
 };
 
