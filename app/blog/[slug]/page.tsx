@@ -1,3 +1,5 @@
+// app/blog/[slug]/page.tsx
+
 import {
   getBlogPostBySlug,
   getAllBlogSlugs,
@@ -23,7 +25,7 @@ interface Post {
   };
   mainImage?: string;
   publishedAt: string;
-  body: Body; // Sesuaikan dengan tipe yang sesuai untuk Portable Text
+  body: Body;
   categories?: Array<{
     title: string;
   }>;

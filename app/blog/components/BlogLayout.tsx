@@ -8,8 +8,8 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-black">
       {/* Header */}
-      <header className="bg-white shadow-md p-4">
-        <div className="container mx-auto text-center">
+      <header className="flex flex-row justify-between shadow-md p-4">
+        <div className="">
           <h1 className="text-2xl font-bold">My Blog</h1>
         </div>
       </header>

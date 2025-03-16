@@ -1,3 +1,5 @@
+// app/blog/components/BlogCard.tsx
+
 import Image from "next/image";
 import {
   Card,
