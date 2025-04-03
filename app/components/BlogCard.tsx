@@ -1,4 +1,4 @@
-// app/blog/components/BlogCard.tsx
+// app/components/BlogCard.tsx
 
 import Image from "next/image";
 import {
@@ -64,7 +64,7 @@ export default function BlogCard({ post }: BlogCardProps) {
       </CardHeader>
       <CardContent>
         <Button asChild variant="outline" className="w-full rounded-none">
-          <a href={`/blog/${post.slug}`}>Read More</a>
+          <a href={`/${post.slug}`}>Read More</a>
         </Button>
       </CardContent>
     </Card>

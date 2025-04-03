@@ -1,4 +1,4 @@
-// app/blog/[slug]/page.tsx
+// app/[slug]/page.tsx
 
 import {
   getBlogPostBySlug,

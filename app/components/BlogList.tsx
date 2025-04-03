@@ -1,4 +1,4 @@
-// blog/components/BlogList.tsx
+// components/BlogList.tsx
 import { getBlogPosts } from "../utils/getBlog";
 import BlogCard from "./BlogCard";
 

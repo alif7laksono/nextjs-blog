@@ -43,7 +43,7 @@ export default function MoreArticles({ posts }: MoreArticlesProps) {
                 {post.title}
               </h3>
               <Button asChild variant="outline" className="w-full">
-                <a href={`/blog/${post.slug}`}>Read More</a>
+                <a href={`/${post.slug}`}>Read More</a>
               </Button>
             </div>
           </div>
